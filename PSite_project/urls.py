@@ -6,17 +6,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'PSite_project.views.home', name='home'),
-    # url(r'^PSite_project/', include('PSite_project.foo.urls')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-
     url(r'^portafolio/',include('portafolio.urls')),
+    url(r'^weblog/', include('zinnia.urls', namespace='zinnia')),
+    url(r'^comments/', include('django_comments.urls')),
 )
 
 
