@@ -1,5 +1,5 @@
-{% extends 'portafolio/base.html' %}	
-{% load static %}	
+{% extends 'portafolio/base.html' %}
+{% load static %}
 {% load app_filters %}
 
 {% block navbar %}
@@ -18,7 +18,7 @@
 			<header>
 				<h2>Hi there!</h2>
 			</header>
-			<p>Welcome to  my <strong>portafolio</strong> website. It was built with SkelJS for visuals and responsive over Django with Zinia blog app. Here you will find several examples of previous and current works and personal projects on Robotics, Web development and Computer Vision. I hope you enjoy it</p>
+			<p>Welcome to  my <strong>portafolio</strong> website. It was built with SkelJS for visuals and responsive over Django with my own simple blog app. Here you will find several examples of previous and current works and personal projects on Robotics, Web development and Computer Vision. I hope you enjoy it</p>
 			<footer>
 				<a href="#one" class="button style2 down">More</a>
 			</footer>
@@ -46,7 +46,7 @@
 		</div>
 		<a href="#work" class="button style2 down anchored">Next</a>
 	</section>
-	
+
 <!-- Work -->
 <!-- TODO: Change Gallery to use automatic / random jobs from the db from the last two rows  -->
 	<section id="work" class="main style3 primary">
@@ -57,21 +57,9 @@
 					Ahead you can find a random sample of my works or personal projects, full list can be found <a href="jobs/">here</a>, If you would like to see more info about a given job in the image gallery, right click its link into a new tab or window.
 				</p>
 			</header>
-			
+
 			<!-- Lightbox Gallery - First row is fixed for me atleast  -->
 				<div class="container small gallery">
-					<div class="row flush images">
-						<div class="6u">
-							<a href="{% static "images/fulls/01.png" %}" class="image fit from-left">
-								<img src="{% static "images/thumbs/01.png" %}" title="&lt;a href=&quot;courses/&quot; &gt;Continuous Development&lt;/a&gt;" alt=""  height="300" width="500" /></a>
-						</div>
-
-						<div class="6u">
-							<a href="{% static "images/fulls/02.jpg" %}" class="image fit from-right">
-								<img src="{% static "images/thumbs/02.jpg" %}" title="&lt;a href=&quot;/master/&quot; target=&quot;_blank&quot;&gt;Master in Automation and Robotics&lt;/a&gt;" alt=""  height="300" width="500" /></a>
-						</div>
-					</div>
-
 					{% if jobs %}
 						{%for job1, job2 in jobs %}
 							<div class="row flush images">
@@ -88,7 +76,7 @@
 					{% endif %}
 		</div>
 	</section>
-	
+
 <!-- Contact -->
 	<section id="contact" class="main style3 secondary">
 		<div class="content container">

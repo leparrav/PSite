@@ -130,17 +130,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'portafolio',
     'django.contrib.comments',
-    'mptt',
-    'tagging',
-    'zinnia',
-    'user',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-  'django.contrib.auth.context_processors.auth',
-  'django.core.context_processors.i18n',
-  'django.core.context_processors.request',
-  'zinnia.context_processors.version',  # Optional
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
