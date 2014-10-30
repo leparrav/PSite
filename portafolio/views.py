@@ -43,3 +43,6 @@ def jobs(request):
 	context_dict = {'jobs_list' : jobs_list}
 	return render_to_response('portafolio/jobs.html', context_dict, context)
 
+def roadmap(request):
+	return render_to_response('portafolio/roadmap.html')
+
