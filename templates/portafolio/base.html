@@ -40,13 +40,13 @@
 <nav id="nav">
 	<ul>
 		{% block navbar %}
-		<li><a href={% block navbar_url1 %} "#intro" {% endblock %}> {% block navbar_name1 %} Intro {% endblock %}</a></li>
-		<li><a href={% block navbar_url2 %} "#one" {% endblock %}> {% block navbar_name2 %} What I do {% endblock %}</a></li>
-		<li><a href={% block navbar_url3 %} "#two" {% endblock %}> {% block navbar_name3 %} Who I am {% endblock %}</a></li>
-		<li><a href={% block navbar_url4 %} "#work" {% endblock %}> {% block navbar_name4 %} My Work {% endblock %}</a></li>
+		<li><a href="#intro"> Intro </a></li>
+		<li><a href= "#one">  What I do </a></li>
+		<li><a href= "#two">  Who I am </a></li>
+		<li><a href= "#work">  My Work </a></li>
 		{% endblock %}
 		<li><a href="/blog">Blog</a></li>
-		<li><a href="mailto:leparrav@gmail.com">Contact</a></li>
+		<li><a href="#contact">Contact</a></li>
 	</ul>
 </nav>
 
