@@ -1,16 +1,20 @@
-{% extends 'portafolio/base.html' %}
-{% block navbar %}
-	<li><a href="/portafolio/"> Homepage </a></li>
-	<li><a href="/portafolio/jobs"> My Work </a></li>
-	<li><a href="/portafolio/courses"> My Courses </a></li>
-{% endblock %}
+I felt like the roadmap should be as simple as possible without any css. 
 
-{% block body_block %}
-	<h6> First Version online 30-10-2014 </h6>
-	<p> Still plenty of things to do </p>
-	<ul>
-		<li> Do blog application </li>
-		<li> Frontpage image gallery shuffle between jobs, courses and personal projects will be nice </li>
-	</ul>
-
-{% endblock %}
+<h3> 1.0 Version online 30-10-2014 </h3>
+Features 
+<ul> 
+	<li> Jobs, Courses are integrated into a SQlite database accessed via Django API </li>
+	<li> Portafolio website uses Skeljs </li>
+</ul>
+Todo:
+<ul>
+	<li> Start blog application </li>
+		<ul>
+			<li> It will use Bootstrap for visuals and responsive </li>
+			<li> Keep it simple! </li>
+			<li> Post model will have title, date, text, limited to one image, tag, category, views </li>
+			<li> Comments will have Name, text, date, likes </li>
+		</ul>
+	<li> Change Frontpage image gallery to shuffle between jobs, courses and personal projects, and not only jobs (zip) </li>
+</ul>
+Bugs:
