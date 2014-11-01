@@ -130,6 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'portafolio',
     'django.contrib.comments',
+    'blog',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
