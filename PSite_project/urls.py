@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^portafolio/',include('portafolio.urls')),
     url(r'^blog/',include('blog.urls')),
     url(r'^rango/',include('rango.urls')),
+    url(r'^$', include('portafolio.urls')),
 )
 
 
