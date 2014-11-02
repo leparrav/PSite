@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+from PSite_project import views
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -12,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^portafolio/',include('portafolio.urls')),
     url(r'^blog/',include('blog.urls')),
     url(r'^rango/',include('rango.urls')),
-    url(r'^$', include('portafolio.urls')),
+    url(r'^$',views.index,name='index'),
 )
 
 
