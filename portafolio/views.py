@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from portafolio.models import Job, Course
+from portafolio.models import Job, Course, Project
 from random import shuffle
 
 def decode(name_url):
@@ -45,4 +45,14 @@ def jobs(request):
 
 def roadmap(request):
 	return render_to_response('portafolio/roadmap.html')
+
+def projects(request):
+	context = RequestContext(request)
+	projects = list(Project.objects.all())
+	shuffle(projects)
+	context_dict = {'projects' : projects}
+	return render_to_response('portafolio/projects.html', context_dict, context)
+
+
+
 

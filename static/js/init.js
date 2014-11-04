@@ -114,6 +114,19 @@
 				usePopupNav: true
 			});
 
+			// Gallery.
+			$('.project_gallery').poptrox({
+				baseZIndex: 10001,
+				useBodyOverflow: true,
+				usePopupEasyClose: true,
+				overlayColor: '#1f2328',
+				overlayOpacity: 0.65,
+				usePopupDefaultStyling: false,
+				usePopupCaption: true,
+				popupLoaderText: '',
+				windowMargin: (skel.isActive('mobile') ? 5 : 50),
+				usePopupNav: true
+			});
 		// Section transitions.
 
 			if (settings.sectionTransitions) {
@@ -296,3 +309,10 @@
 	});
 })(jQuery);
 
+$( document ).ready(function() {
+	jQuery('.camera_wrap').camera({ //here I declared some settings, the height and the presence of the thumbnails 
+	height: '41%',
+	pagination: false,
+	thumbnails: true
+});
+});

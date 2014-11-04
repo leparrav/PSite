@@ -6,4 +6,5 @@ urlpatterns = patterns('',
 	url(r'^courses/$',views.courses,name='courses'),
 	url(r'^jobs/$',views.jobs,name='jobs'),
 	url(r'^roadmap/$',views.roadmap,name="roadmap"),
+	url(r'^projects/$',views.projects,name="projects"),
 	)
