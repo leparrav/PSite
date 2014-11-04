@@ -117,7 +117,7 @@
 			// Gallery.
 			$('.project_gallery').poptrox({
 				baseZIndex: 10001,
-				useBodyOverflow: true,
+				useBodyOverflow: false,
 				usePopupEasyClose: true,
 				overlayColor: '#1f2328',
 				overlayOpacity: 0.65,
