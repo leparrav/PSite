@@ -38,3 +38,8 @@ class Comment_response(models.Model):
 	def __unicode__(self):
 		return self.author
 
+class Quote(models.Model):
+	author = models.CharField(max_length=72)
+	text = models.TextField()
+	def __unicode__(self):
+		return self.author
