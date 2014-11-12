@@ -3,5 +3,5 @@ from blog import views
 
 urlpatterns = patterns('',
 	url(r'^$',views.index,name='index'),
-	url(r'post/\d+',views.post,name='post'),
+	url(r'post/(?P<post_pk>\d+)',views.post,name='post'),
 	)
