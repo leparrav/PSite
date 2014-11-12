@@ -16,7 +16,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=128)
 	text = models.TextField()
 	date = models.DateField()
-	pic = models.ImageField(upload_to="post_images") # I want to limit 1 image per post, Keep it simple!
+	pic = models.ImageField(upload_to="post_images") # For top banner only, text can have image with markdown
 	views = models.PositiveIntegerField(default=0)
 	tag = models.ManyToManyField(Tag)
 	category = models.ForeignKey(Category)
