@@ -127,6 +127,12 @@
 				windowMargin: (skel.isActive('mobile') ? 5 : 50),
 				usePopupNav: true
 			});
+
+			$('.dsp').hide()
+
+	    	$('.btn-show').click(function(){
+    			$(this).next('p').toggle()
+			});
 		// Section transitions.
 
 			if (settings.sectionTransitions) {
