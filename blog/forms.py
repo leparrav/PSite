@@ -4,6 +4,7 @@ import bleach
 import datetime
 
 
+# At the end didn't use it, I decided to use Disqus instead
 class  CommentForm(forms.ModelForm):
 	author = forms.CharField(help_text="Username", max_length=36)
 	text = forms.CharField(widget=forms.Textarea, help_text="Comment", max_length=512)
