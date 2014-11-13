@@ -20,28 +20,36 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {% if post_list %}
-                {% for post in post_list %}
-                    <div class="post-preview">
-                        <a href="/blog/post/{{post.pk}}">
-                            <h2 class="post-title">
-                                {{post.title}}
-                            </h2>
-                        </a>
-                        <p class="post-meta">Posted by <a href="#"> Luis Parra</a> at {{post.date}}</p>
-                    </div>
-                {% endfor %}
+            {% if no_more %}
+                <p> There are no more posts, go back </p>
             {% else %}
-                <h2 class="post-title"> Sadly, there are no posts yet.</h2>
-                <h3 class="post-subtitle"> Check again soon... </h3>
+                {% if post_list %}
+                    {% for post in post_list %}
+                        <div class="post-preview">
+                            <a href="/blog/post/{{post.pk}}">
+                                <h2 class="post-title">
+                                    {{post.title}}
+                                </h2>
+                            </a>
+                            <p class="post-meta">Posted by <a href="#"> Luis Parra</a> at {{post.date}}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h2 class="post-title"> Sadly, there are no posts yet.</h2>
+                    <h3 class="post-subtitle"> Check again soon... </h3>
+                {% endif %}
             {% endif %}
             <hr>
             <!-- Pager -->
+            {% if no_more %}
+
+            {% else %}
             <ul class="pager">
                 <li class="next">
-                    <a href="#">Older Posts &rarr;</a>
+                    <a href="/blog/{{next}}">Older Posts &rarr;</a>
                 </li>
             </ul>
+            {% endif %}
         </div>
     </div>
 </div>
