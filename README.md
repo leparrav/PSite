@@ -1,3 +1,5 @@
-## This site is made in Django 
+## This site is made with Django 
 
-Is a personal website with my cv, blog and some apps
+Is a personal website with my cv, blog and some apps is deployed on:
+
+[Site](https://leparrav.pythonanywhere.com)

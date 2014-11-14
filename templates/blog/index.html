@@ -2,7 +2,11 @@
 {% load static %}
 {% block body_block %}
 
-<header class="intro-header" style="background-image: url({{post_list.0.pic.url}})">
+{% if post_list %}
+    <header class="intro-header" style="background-image: url({{post_list.0.pic.url}})">
+{% else %}
+    <header class="intro-header" style="background-image: url('/static/images/intro.jpg')">
+{% endif%}
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -20,9 +24,6 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {% if no_more %}
-                <p> There are no more posts, go back </p>
-            {% else %}
                 {% if post_list %}
                     {% for post in post_list %}
                         <div class="post-preview">
@@ -31,25 +32,33 @@
                                     {{post.title}}
                                 </h2>
                             </a>
-                            <p class="post-meta">Posted by <a href="#"> Luis Parra</a> at {{post.date}}</p>
+                            <p class="post-meta">
+                                Posted by 
+                                <a href="#"> 
+                                    Luis Parra
+                                </a> 
+                                on {{post.date|date:"M d, Y"}}
+                            </p>
                         </div>
                     {% endfor %}
                 {% else %}
-                    <h2 class="post-title"> Sadly, there are no posts yet.</h2>
-                    <h3 class="post-subtitle"> Check again soon... </h3>
+                    <h4> There are no posts in this page, but you have found the answer to the Ultimate Question of Life, the Universe, and Everything </h4>
+                    <p> 42 </p>
                 {% endif %}
-            {% endif %}
             <hr>
             <!-- Pager -->
-            {% if no_more %}
-
-            {% else %}
             <ul class="pager">
+                {% if previous_present %}
+                    <li class="previous">
+                        <a href="/blog/{{previous}}">&larr; Previous Page </a>
+                    </li>
+                {% endif %}
+               {% if next_present %}
                 <li class="next">
-                    <a href="/blog/{{next}}">Older Posts &rarr;</a>
+                    <a href="/blog/{{next}}">Next Page &rarr;</a>
                 </li>
+                {% endif %}
             </ul>
-            {% endif %}
         </div>
     </div>
 </div>
