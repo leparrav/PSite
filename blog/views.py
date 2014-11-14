@@ -71,3 +71,7 @@ def post(request, post_pk):
 					'previous': post_pk+1,
 					'previous_present': previous_present}
 	return render_to_response('blog/post.html', context_dict, context)
+
+def search(request):
+	context = RequestContext(request)
+	return render_to_response('blog/search.html')
