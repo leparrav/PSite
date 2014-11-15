@@ -8,6 +8,14 @@
 
 $(function() {
 
+    $('#suggestion').keyup(function(){
+        var query;
+        query = $(this).val();
+        $.get('/blog/search_suggest/', {suggestion: query}, function(data){
+         $('#results').html(data);
+        });
+    });
+
     $("input,textarea").jqBootstrapValidation({
         preventSubmit: true,
         submitError: function($form, event, errors) {

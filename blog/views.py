@@ -3,6 +3,20 @@ from django.template import RequestContext
 from blog.models import Quote, Post
 from blog.forms import CommentForm
 from random import shuffle, randint
+from django.db.models import Q
+
+def get_search_list(max_results=10, query=''):
+    post_list = []
+    if query:
+            post_list = Post.objects.filter(Q(title__icontains=query) | Q(text__icontains=query)).order_by('-date')
+    else:
+            post_list = None
+
+    if post_list > 0:
+            if len(post_list) > max_results:
+                    post_list = post_list[:max_results]
+
+    return post_list
 
 
 def index(request, post_page):
@@ -74,4 +88,17 @@ def post(request, post_pk):
 
 def search(request):
 	context = RequestContext(request)
-	return render_to_response('blog/search.html')
+	post = get_object_or_404(Post, pk=randint(1,Post.objects.count()))
+	quote = Quote.objects.get(pk=randint(1,Quote.objects.count()))
+	context_dict = {'post': post, 
+					'quote': quote }
+	return render_to_response('blog/search.html', context_dict, context)
+
+def search_suggest(request):
+	context = RequestContext(request)
+	posts = []
+	starts_with = ''
+	if request.method == 'GET':
+		starts_with = request.GET['suggestion']
+	posts = get_search_list(8, starts_with)
+	return render_to_response('blog/search_list.html', {'posts': posts }, context)
