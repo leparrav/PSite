@@ -15,10 +15,7 @@
 <!-- Intro -->
 	<section id="intro" class="main style1 dark fullscreen">
 		<div class="content container small">
-			<header>
-				<h2>Hi there!</h2>
-			</header>
-			<p>Welcome to  my <strong>portafolio</strong> website. It was built with SkelJS for visuals and responsive over Django with my own simple blog app. Here you will find several examples of previous and current works and personal projects on Robotics, Web development and Computer Vision. I hope you enjoy it</p>
+			<p>Welcome to  my <strong>portfolio</strong> website. Main page was built with SkelJS, Blog with Bootstrap both over Django framework. In here you will find several examples of previous and current works and personal projects on Robotics, Computer Vision and Web Development. I hope you enjoy it</p>
 			<footer>
 				<a href="#one" class="button style2 down">More</a>
 			</footer>
@@ -48,24 +45,20 @@
 	</section>
 
 <!-- Work -->
-<!-- TODO: Change Gallery to use automatic / random jobs from the db from the last two rows  -->
 	<section id="work" class="main style3 primary">
 		<div class="content container">
 			<header>
 				<h2>My Work</h2>
 				<p>
-					Well I divided my work into three categories:
 					<ul>
-						<li><a href="jobs/"> Jobs </a></li> 
-						<li><a href="courses/"> Continuous Development </a> </li>
-						<li><a href="projects/"> Personal Projects </a> </li> 
+						<li><a href="jobs/"> <h3> Jobs </h3> </a></li> 
+						<li><a href="courses/"> <h3> Courses </h3> </a> </li>
+						<li><a href="projects/"> <h3> Personal Projects </h3> </a> </li>
+						<li><a href="projects/"> <h3> CV </h3> </a> </li>  
 					</ul>
-
-						Beware that the last one are projects usually made for fun or for trying new technologies so they will probabily not be well documented
 				</p>
 			</header>
-
-			<!-- Lightbox Gallery - First row is fixed for me atleast  -->
+			<!-- Lightbox Gallery -->
 				<div class="container small gallery">
 					{% if jobs %}
 						{%for job1, job2 in jobs %}
@@ -89,7 +82,7 @@
 		<div class="content container">
 			<header>
 				<h2>Say Hello.</h2>
-				<p>If you would like to contact me please, do so over my linkedin account or email, you can find it in my <a href="{% static "cv.pdf" %}">cv </a></p>
+				<p>If you would like to contact me please, send me an email or fill out this form </a></p>
 			</header>
 		</div>
 	</section>
