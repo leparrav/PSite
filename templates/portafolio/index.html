@@ -7,8 +7,8 @@
 	<li><a href="#one"> What I do </a></li>
 	<li><a href="#two"> Who I am </a></li>
 	<li><a href="#work"> My Work </a></li>
-	<li><a href="courses/"> My Courses </a></li>
-	<li><a href="projects/"> Personal Projects </a></li>
+	<li><a href="{% url 'portafolio:courses' %}"> My Courses </a></li>
+	<li><a href="{% url 'portafolio:projects' %}"> Personal Projects </a></li>
 {% endblock %}
 
 {% block body_block %}
@@ -51,10 +51,10 @@
 				<h2>My Work</h2>
 				<p>
 					<ul>
-						<li><a href="{% url 'jobs' %}"> <h3> Jobs </h3> </a></li> 
-						<li><a href="{% url 'courses' %}"> <h3> Courses </h3> </a> </li>
-						<li><a href="{% url 'projects' %}"> <h3> Personal Projects </h3> </a> </li>
-						<li><a href="{% url 'jobs' %}"> <h3> CV </h3> </a> </li>  
+						<li><a href="{% url 'portafolio:jobs' %}"> <h3> Jobs </h3> </a></li> 
+						<li><a href="{% url 'portafolio:courses' %}"> <h3> Courses </h3> </a> </li>
+						<li><a href="{% url 'portafolio:projects' %}"> <h3> Personal Projects </h3> </a> </li>
+						<li><a href="{% url 'portafolio:jobs' %}"> <h3> CV </h3> </a> </li>  
 					</ul>
 				</p>
 			</header>

@@ -4,8 +4,8 @@
 
 <!-- Header - Navbar -->
 {% block navbar %}
-	<li><a href="/portafolio/"> Homepage </a></li>
-	<li><a href="/portafolio/jobs"> My Work </a></li>
+	<li><a href="{% url 'portafolio:index' %}"> Homepage </a></li>
+	<li><a href="{% url 'portafolio:jobs' %}"> My Work </a></li>
 {% endblock %}
 
 

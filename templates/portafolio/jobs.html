@@ -3,8 +3,8 @@
 
 <!-- Header - Navbar -->
 {% block navbar %}
-	<li><a href="/portafolio/"> Homepage </a></li>
-	<li><a href="/portafolio/courses"> My Courses </a></li>
+	<li><a href="{% url 'portafolio:index' %}"> Homepage </a></li>
+	<li><a href="{% url 'portafolio:courses' %}"> My Courses </a></li>
 {% endblock %}
 
 
