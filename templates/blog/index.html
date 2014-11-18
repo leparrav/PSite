@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load custom_markdown %}
+
 {% block body_block %}
 
 {% if post_list %}
@@ -39,6 +41,9 @@
                                 </a> 
                                 on {{post.date|date:"M d, Y"}}
                             </p>
+                        </div>
+                        <div class="post-text"> 
+                            {{ post.text|custom_markdown }}
                         </div>
                     {% endfor %}
                 {% else %}

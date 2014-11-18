@@ -8,6 +8,8 @@
 
 $(function() {
 
+    $('.post-text').hide()
+
     $('#suggestion').keyup(function(){
         var query;
         query = $(this).val();
@@ -15,6 +17,14 @@ $(function() {
          $('#results').html(data);
         });
     });
+
+    $(".post-preview")
+      .mouseenter(function() {
+        $(this).next( ".post-text" ).show();
+      })
+      .mouseleave(function() {
+        $(this).next( ".post-text" ).hide();
+      });
 
     $("input,textarea").jqBootstrapValidation({
         preventSubmit: true,
