@@ -10,7 +10,7 @@ register = template.Library()
 @register.filter(is_safe=True)
 @stringfilter
 def custom_markdown(value):
-    extensions = ["nl2br", ]
+    extensions = ["nl2br",'codehilite(force_linenos=True)']
 
     return mark_safe(markdown.markdown(force_unicode(value),
                                        extensions,
