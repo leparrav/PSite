@@ -21,7 +21,10 @@ def get_search_list(max_results=10, query=''):
 
 def index(request, post_page):
 	context = RequestContext(request)
-	post_page = int(post_page) if int(post_page) >= 1 else 1
+	if post_page:
+		post_page = int(post_page) if int(post_page) >= 1 else 1
+	else:
+		post_page = 1
 	quote = Quote.objects.get(pk=randint(1,Quote.objects.count()))
 	post_len = Post.objects.count()
 	posts_per_page = 5

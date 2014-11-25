@@ -25,6 +25,8 @@
                     <h2> {{post.title}} </h2>
                    {{ post.text|custom_markdown }}
                    <hr>
+                   <div class="fb-like" data-colorscheme="dark" data-href="." data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
+                   <hr>
                         <ul class="pager">
                             {% if previous_present %}
                                 <li class="previous">
