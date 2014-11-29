@@ -27,9 +27,9 @@ def index(request, post_page):
 		post_page = 1
 	quote = Quote.objects.get(pk=randint(1,Quote.objects.count()))
 	post_len = Post.objects.count()
-	posts_per_page = 5
+	posts_per_page = 3
 
-	lower_bound = posts_per_page*(post_page-1) 
+	lower_bound = posts_per_page*(post_page-1)
 	upper_bound = posts_per_page*(1+(post_page-1))
 
 	# Get post if any
@@ -37,19 +37,19 @@ def index(request, post_page):
 		post_list = None
 	elif lower_bound < post_len and upper_bound > post_len: # Last posts...
 		post_list = Post.objects.order_by('-date')[lower_bound:]
-	else:	
+	else:
 		post_list = Post.objects.order_by('-date')[lower_bound:upper_bound]
 
 	# Control pagers, next and previous
-	lower_bound = posts_per_page*(post_page) 
+	lower_bound = posts_per_page*(post_page)
 	upper_bound = posts_per_page*(1+(post_page))
 	# Next
 	if upper_bound >= post_len and lower_bound >= post_len: # No more post to show, fix image when this happen
 		next_present = False
-	else:	
+	else:
 		next_present = True
 	# Previous
-	lower_bound = posts_per_page*(post_page-1) 
+	lower_bound = posts_per_page*(post_page-1)
 	upper_bound = posts_per_page*(1+(post_page-1))
 	if post_page <= 1:
 		previous_present = False
@@ -58,8 +58,8 @@ def index(request, post_page):
 	else:
 		previous_present = True
 
-	context_dict = {'quote': quote, 
-					'post_list': post_list, 
+	context_dict = {'quote': quote,
+					'post_list': post_list,
 					'next': post_page +1,
 					'next_present': next_present,
 					'previous_present': previous_present,
@@ -81,9 +81,9 @@ def post(request, post_pk):
 	if post_pk >= post_count:
 		previous_present = False
 
-	context_dict = {'post': post, 
-					'quote': quote, 
-					'next': post_pk-1, 
+	context_dict = {'post': post,
+					'quote': quote,
+					'next': post_pk-1,
 					'next_present': next_present,
 					'previous': post_pk+1,
 					'previous_present': previous_present}
@@ -93,7 +93,7 @@ def search(request):
 	context = RequestContext(request)
 	post = get_object_or_404(Post, pk=randint(1,Post.objects.count()))
 	quote = Quote.objects.get(pk=randint(1,Quote.objects.count()))
-	context_dict = {'post': post, 
+	context_dict = {'post': post,
 					'quote': quote }
 	return render_to_response('blog/search.html', context_dict, context)
 
