@@ -14,5 +14,5 @@ def custom_markdown(value):
 
     return mark_safe(markdown.markdown(force_unicode(value),
                                        extensions,
-                                       safe_mode=True,
+                                       safe_mode=False,
                                        enable_attributes=False))

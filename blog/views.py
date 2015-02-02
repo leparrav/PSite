@@ -1,8 +1,7 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from blog.models import Quote, Post
-from blog.forms import CommentForm
-from random import shuffle, randint
+from random import randint
 from django.db.models import Q
 
 def get_search_list(max_results=10, query=''):
@@ -27,7 +26,7 @@ def index(request, post_page):
 		post_page = 1
 	quote = Quote.objects.get(pk=randint(1,Quote.objects.count()))
 	post_len = Post.objects.count()
-	posts_per_page = 3
+	posts_per_page = 5
 
 	lower_bound = posts_per_page*(post_page-1)
 	upper_bound = posts_per_page*(1+(post_page-1))
