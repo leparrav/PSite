@@ -1,88 +1,383 @@
-{% extends 'portafolio/base.html' %}
-{% load static %}
-{% load app_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<title>About me</title>
+	<meta name="description" content="some some some">
+	<meta name="author" content="some">
+	<meta name="keywords" content="some, some, some">
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv/html5shiv.js" type="text/javascript"></script>
+		<script src="js/html5shiv/html5shiv-printshiv.js" type="text/javascript"></script>
+		<style type="text/css">.site_nav { border-bottom: 1px solid #d4d4d4; }</style>
+	<![endif]-->
+	<link href="/static/CV_files/css.css" rel="stylesheet" type="text/css">
+	<link href="/static/CV_files/css_002.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/static/CV_files/-ontello.css">
+	<link rel="stylesheet" href="/static/CV_files/bootstrap.css">
+	<link rel="stylesheet" href="/static/CV_files/bootstrap-responsive.css">
+	<link rel="stylesheet" href="/static/CV_files/progressbar.css">
+	<link rel="stylesheet" href="/static/CV_files/lightbox.css">
+	<link rel="stylesheet" href="/static/CV_files/styles.css">
 
-{% block navbar %}
-	<li><a href="#intro"> Intro </a></li>
-	<li><a href="#one"> What I do </a></li>
-	<li><a href="#two"> Who I am </a></li>
-	<li><a href="#work"> My Work </a></li>
-	<li><a href="{% url 'portafolio:courses' %}"> My Courses </a></li>
-	<li><a href="{% url 'portafolio:projects' %}"> Personal Projects </a></li>
-{% endblock %}
+</head>
 
-{% block body_block %}
-<!-- Intro -->
-	<section id="intro" class="main style1 dark fullscreen">
-		<div class="content container small">
-			<p>Welcome to  my <strong>portfolio</strong> website. Main page was built with SkelJS, Blog with Bootstrap both over Django framework. In here you will find several examples of previous and current works and personal projects on Robotics, Computer Vision and Web Development. I hope you enjoy it</p>
-			<footer>
-				<a href="#one" class="button style2 down">More</a>
-			</footer>
-		</div>
-	</section>
+<body>
+<div class="wrapper">
+	<div class="container">
+	
+		<div class="upbtnwrapp"><div style="display: block;" class="upbtn"><span class="icon-up-open-big"></span></div></div>
+	
+		<!-- NAVIGATION -->
+		<nav style="position: fixed; margin-bottom: 55px; width: 940px; top: 0px;" class="site_nav" id="site_nav">
+			<ul class="">
+				<li class=""><a href="#about_me">About me</a></li>
+				<li class=""><a href="#my_expertise">My Expertise</a></li>
+				<li class=""><a href="#experience">Experience</a></li>
+				<li class="active"><a href="#education">Education</a></li>
+				<li class=""><a href="#courses">Courses</a></li>
+				<li class=""><a href="#projects">Projects</a></li>
+			</ul>
+		</nav> <!-- /site_nav -->
+		<div style="height: 55px;" id="aftermenuspace"></div>
+		<!-- HEADER -->
+		<header class="site_header centerise borderbtn">
+			<h1>LUIS PARRA</h1>
+			<div id="logoline"></div>
 
-<!-- One -->
-	<section id="one" class="main style2 right dark fullscreen">
-		<div class="content box style2">
-			<header>
-				<h2>What I Do?</h2>
-			</header>
-			<p>I work with advanced algorithms for design and deployment in robotics and computer vision industry, deep learning networks, fuzzy controllers, probabilistic graphical models.</p>
-		</div>
-		<a href="#two" class="button style2 down anchored">Next</a>
-	</section>
-
-<!-- Two -->
-	<section id="two" class="main style2 left dark fullscreen">
-		<div class="content box style2">
-			<header>
-				<h2>Who Am I?</h2>
-			</header>
-			<p>I'm an Electrical engineer with a Master in Automation and Robotics, with over 2+ years of expertise in these fields, my great hobbies includes web development, data science, 3D modelling.  I'm also very passionate about learning and a <strong> big </strong> fan of MOOC courses</p>
-		</div>
-		<a href="#work" class="button style2 down anchored">Next</a>
-	</section>
-
-<!-- Work -->
-	<section id="work" class="main style3 primary">
-		<div class="content container">
-			<header>
-				<h2>Resume</h2>
-				<p>
-					<ul>
-						<li><a href="{% url 'portafolio:jobs' %}"> <h3> Experience </h3> </a></li>
-						<li><a href="{% url 'portafolio:courses' %}"> <h3> Courses </h3> </a> </li>
-						<li><a href="{% url 'portafolio:projects' %}"> <h3> Personal Projects </h3> </a> </li>
-					</ul>
-				</p>
-			</header>
-			<!-- Lightbox Gallery -->
-				<div class="container small gallery">
-					{% if jobs %}
-						{%for job1, job2 in jobs %}
-							<div class="row flush images">
-									<div class="6u">
-											<a href="{{ job1.pic1.url }}" class="image fit from-left">
-											<img src="{{ job1.pic1.url }}"  title="&lt;a href=&quot;/{{ jobs_urls|get_item:job1.company_name }}/{{ jobs_urls|get_item:job1.role }}&quot; target=&quot;_blank&quot;&gt;{{job1.role}}&lt;/a&gt;" alt="" height="300" width="500" /></a>
+			<br>
+			<h2>ELECTRICAL ENGINEER</h2>
+			<h3>Innovation distinguishes between a leader and a follower.
+</h3>
+		</header> <!-- /site_header -->
+		<!-- end HEADER -->
+		<div class="container-fluid page">
+		
+			<!-- ABOUT ME -->
+			<section class="row-fluid about_me" id="about_me">
+				<aside class="span3 aside_el">
+					<h2>About me</h2>
+					<h5>professional profile<br> and contact info</h5>
+				</aside>
+				<article class="span6 borderleft par_el">
+					<span class="circle"><img style="float:left" src="/static/CV_files/mypic.jpg" alt=""></span>
+					<p>I'm an Electrical Engineer with a Master in Automation and Robotics, with over 2+ years of expertise. I have a good knowdledge in design and deployment of robotics, automatic control and computer vision systems. I'm also always pursuing new technologies and updating myself about the latest trends. I also do some web and mobile applications development, mainly using my two favorites languages (C++ and Python).
+					</p>
+					<p>
+					I have experience with OpenCV, Numpy, Scipy, Sklearn etc. With a strong fundations on linear algebra, optimization, machine learning, probability and statistics. 
+					</p>
+					
+				</article>
+				<div class="span3 cont_info">
+					<div class="soc">
+						<ul>
+							<li><a href="https://www.facebook.com/luis.e.valles.71"><img src="/static/CV_files/facebook.png" alt=""></a></li>
+							<li><a href=""><img src="/static/CV_files/twitter.png" alt=""></a></li>
+							<li><a href="http://es.linkedin.com/in/luisenriqueparravalles"><img src="/static/CV_files/linkedin.png" alt=""></a></li>
+							<li><a href=""><img src="/static/CV_files/google-plus.png" alt=""></a></li>
+						</ul>
+					</div>
+					<div class="info">
+						<ul>
+							<li><span class="icon-mobile"></span><a>+34 663 745 665</a></li>
+							<li><span class="icon-location"></span><a>Badajoz, Spain</a></li>
+							<li><span class="icon-mail"></span><a>leparrav@gmail.com</a></li>
+							<li><a>Download CV</a></li>
+						</ul>
+					</div>
+				</div> <!-- /cont_info -->
+			</section> <!-- /about_me -->
+			<!-- end ABOUT ME -->
+			
+			<!-- MY EXPERTISE -->
+			<section class="row-fluid my_expertise" id="my_expertise">
+				<aside class="span3 aside_el">
+					<h2>My Expertise</h2>
+					<h5>skills that I’m<br> proud of</h5>
+				</aside>
+				<article class="span4 borderleft par_el">
+					<p>Over the past years I have adquired and developed a set of skills that I find quite useful. I have developed a couple of applications mostly in C++ about for Computer Vision and Robotics, some of them are Visual Tracking, Object Detection and Classification, Pick and Place, Joint Visual and Force Controllers implementantion, etc. I also try to keep practicing and developing new applications each month</p>
+					<p>I also been working with the latest technologies, fuzzy-neural networks, markov random fields, deep learning algorithms. I've got best Master Thesis award</p>
+				</article>
+				<div class="span5 skill_level">
+					<h4>Software design and development</h4>
+					<div class="progressbar percent_90">
+						<div class="progressbar-inner"></div>
+					</div>
+					<h4>Python</h4>
+					<div class="progressbar percent_80">
+						<div class="progressbar-inner"></div>
+					</div>
+					<h4>C++</h4>
+					<div class="progressbar percent_80">
+						<div class="progressbar-inner"></div>
+					</div>
+					<h4>System Administration (Linux or Windows)</h4>
+					<div class="progressbar percent_70">
+						<div class="progressbar-inner"></div>
+					</div>
+					<h4>Matlab</h4>
+					<div class="progressbar percent_70">
+						<div class="progressbar-inner"></div>
+					</div>
+					<h4>Source Control (Git, Mercurial, SVN)</h4>
+					<div class="progressbar percent_70">
+						<div class="progressbar-inner"></div>
+					</div>				
+					<h4>Web development (Django, HTML5, CSS and Javascript)</h4>
+					<div class="progressbar percent_60">
+						<div class="progressbar-inner"></div>
+					</div>	
+					<h4>Databases (MySQL, PostgreSQL, SQLite)</h4>
+					<div class="progressbar percent_60">
+						<div class="progressbar-inner"></div>
+					</div>							
+				</div> <!-- /skill_level -->
+			</section> <!-- /my_expertise -->
+			<!-- end MY EXPERTISE -->
+			
+			<!-- EXPERIENCE -->
+			<section class="row-fluid experience" id="experience">
+				<aside class="span3 aside_el">
+					<h2>Experience</h2>
+					<h5>where I worked</h5>
+				</aside>
+				<div class="span9">
+					{% if jobs_list %}
+						{% for job in jobs_list %}
+							<div class="row-fluid">
+								<article class="span12  borderleft par_el in_spacing">
+									<span class="period">{{job.start_date}} to {{job.end_date}}</span>
+									<div class="bigspacing">
+										<header>
+											<a href= {{ job.company_url }} ><h2>{{job.company_name}}</h2></a>
+											<h3>{{job.role}}</h3>
+										</header>
+										<p>{{job.description}}</p>
 									</div>
-									<div class="6u">
-											<a href="{{ job2.pic3.url }}" class="image fit from-right">
-											<img src="{{ job2.pic3.url }}"  title="&lt;a href=&quot;/{{ jobs_urls|get_item:job2.company_name }}/{{ jobs_urls|get_item:job2.role }}&quot; target=&quot;_blank&quot;&gt;{{job2.role}}&lt;/a&gt;" alt="" height="300" width="500" /></a>
-									</div>
+								</article>
 							</div>
 						{% endfor %}
 					{% endif %}
-		</div>
-	</section>
+				</div>
+			</section> <!-- /experience -->
+			<!-- end EXPERIENCE -->
 
-<!-- Contact -->
-	<section id="contact" class="main style3 secondary">
-		<div class="content container">
-			<header>
-				<h2>Say Hello.</h2>
-				<p>If you would like to contact me please, send me an email or fill out this form </a></p>
-			</header>
-		</div>
-	</section>
-{% endblock %}
+			<!-- EDUCATION -->
+			<section class="row-fluid education" id="education">
+				<aside class="span3 aside_el">
+					<h2>Education</h2>
+					<h5>my college and<br> Master</h5>
+				</aside>
+				<div class="span9"> 
+					<div class="row-fluid">
+						<article class="span12  borderleft par_el in_spacing">
+							<span class="period">2010 - 2011</span>
+							<div class="bigspacing">
+								<header>
+									<a href="http://www.ua.es/"><h2>University of Alicante</h2></a>
+									<a href="http://www.mayr.ua.es/"><h3>Master in Automation and Robotics</h3></a>
+								</header>
+								<p>Amazing master where We dwellt on advanced robotics, computer vision, 3D vision, control and programming of robots. I had a great experience there, learning a lot from some very good and expert teachers </p>
+								<p>Graduated first in the class, with a 9,3 out of 10 GPA. Best Master Thesis Award Joint Visual Force controllers with Neuro - Fuzzy Networks.  </p>
+							</div>
+						</article>
+					</div>
+					<div class="row-fluid">
+						<article class="span12  borderleft par_el in_spacingbottom">
+							<span class="period">2003 - 2008</span>
+							<div class="bigspacing">
+								<header>
+									<a href="http://www.uc.edu.ve/"><h2>University of Carabobo</h2></a>
+									<h3>Electrical Engineer</h3>
+								</header>
+								<p>I'm quite proud of the education  level in my home university, there I got specialized in control systems, where I learned and practice about state space, PID Control, robust control and dynamical systems. Also on what currently industries uses for their networks, HMI and PLC programming. </p>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section> <!-- /education -->
+			<!-- end EDUCATION -->
+
+			<!-- COURSES -->
+			<section class="row-fluid education" id="courses">
+				<aside class="span3 aside_el">
+					<h2>Courses</h2>
+					<h5>Life long learning<br> is the key to success</h5>
+				</aside>
+				<div class="span9">
+					{% if courses %}
+						{% for course in courses %}
+							<div class="row-fluid">
+								<article class="span12  borderleft par_el in_spacing">
+									<span class="period"> {{course.end_date}} </span>
+									<div class="bigspacing">
+										<header>
+											<h2>{{course.institution}}</h2>
+											<a href={{course.course_url}}><h3>{{course.name}}</h3></a>
+										</header>
+									</div>
+								</article>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</section> <!-- /COURSES -->
+			<!-- end COURSES -->
+
+			<!-- PROJECTS -->
+			<section class="row-fluid education" id="projects">
+				<aside class="span3 aside_el">
+					<h2>Projects</h2>
+					<h5>Some personal projects<br> I've been working</h5>
+				</aside>
+				<div class="span9">
+					{% if projects %}
+						{% for project in projects %}
+							<div class="row-fluid">
+								<article class="span12  borderleft par_el in_spacing">
+									<div class="bigspacing">
+										<header>
+											<a href={{project.project_url}}><h2>{{project.name}}</h2></a>
+										</header>
+											<p> {{project.description}} </p>
+									</div>
+								</article>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</section> <!-- /COURSES -->
+			<!-- end COURSES -->
+		</div> <!-- /page -->
+	
+	</div> <!-- /container -->
+</div> <!-- /wrapper -->
+	<script type="text/javascript" src="/static/CV_files/jquery.js"></script>
+	<script src="/static/CV_files/parsley.js"></script>
+	<script src="/static/CV_files/lightbox.js"></script>
+	<script src="/static/CV_files/retina.js"></script>
+	
+	<script>''
+	$(document).ready(function(){
+		$('.comment_form input, .comment_form textarea').focus(function () { 
+			$(this).css({"-webkit-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "-moz-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "border": "1px solid #999"}); 
+		});
+		$('.comment_form input, .comment_form textarea').blur(function () { 
+			$(this).css({"-webkit-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "-moz-box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0)", "border": "1px solid #e0e0e0"}); 
+		});
+	});
+	$(".send-button").click(function () {
+		if ( $( '.comment_form' ).parsley('validate') ) {
+			var form_name = $("#form_name").val(); 
+			var form_email = $("#form_email").val(); 
+			var form_message = $("#form_message").val(); 
+			$.post("php/mailer.php", { name : form_name , email : form_email , message : form_message }, function(results){
+				alert(results);
+			}); 
+		} 
+	});
+	$(window).on('load resize', function () {
+		current_width = $(window).width();
+		if ( current_width < 767 ) {
+			$("br").hide();
+		} else {
+			$("br").show();
+		}
+	});
+	
+	// Cache selectors
+	if ( $(window).width() > 940 ) {
+		var lastId,
+			topMenu = $("#site_nav")
+			topMenuHeight = topMenu.outerHeight()+40,
+			// All list items
+			menuItems = topMenu.find("a"),
+			// Anchors corresponding to menu items
+			scrollItems = menuItems.map(function(){
+			  var item = $($(this).attr("href"));
+			  if (item.length) { return item; }
+			});
+	} else {
+		var lastId,
+			topMenu = $("#site_nav")
+			topMenuHeight = topMenu.outerHeight()-140,
+			// All list items
+			menuItems = topMenu.find("a"),
+			// Anchors corresponding to menu items
+			scrollItems = menuItems.map(function(){
+			  var item = $($(this).attr("href"));
+			  if (item.length) { return item; }
+			});
+	
+	}
+	
+	
+	// Bind click handler to menu items
+	// so we can get a fancy scroll animation
+	menuItems.click(function(e){
+	  var href = $(this).attr("href"),
+		  offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1;
+	  $('html, body').stop().animate({ 
+		  scrollTop: offsetTop
+	  }, 300);
+	  e.preventDefault();
+	});
+
+	// Bind to scroll
+	$(window).scroll(function(){
+	   // Get container scroll position
+	   var fromTop = $(this).scrollTop()+topMenuHeight;
+	   
+	   // Get id of current scroll item
+	   var cur = scrollItems.map(function(){
+		 if ($(this).offset().top < fromTop)
+		   return this;
+	   });
+	   // Get the id of the current element
+	   cur = cur[cur.length-1];
+	   var id = cur && cur.length ? cur[0].id : "";
+	   
+	   if (lastId !== id) {
+		   lastId = id;
+		   // Set/remove active class
+		   menuItems
+			 .parent().removeClass("active")
+			 .end().filter("[href=#"+id+"]").parent().addClass("active");
+	   }                   
+	});// $('.scrollup').fadeIn();
+	
+	$(window).scroll(function(){
+		var pos = $(window).scrollTop();
+		if (pos > 55 && current_width > 940) {
+			$(".site_nav").css({
+					"position": "fixed",
+					"top":    "0",
+					"width":    "940px",
+					"margin-bottom":    "55px",
+			});
+			$("#aftermenuspace").css({
+					"height":    "55px",
+			});
+		} else {
+			$(".site_nav").css({
+					"position": "relative",
+					"margin-bottom":    "0",
+					"width":    "100%",
+			});
+			$("#aftermenuspace").css({
+					"height":    "0",
+			});
+		}
+		if ( pos > 600 ) { $('.upbtn').fadeIn();} else { $('.upbtn').fadeOut(); }
+	});
+	
+	$('.upbtn').click(function(){
+		$("html, body").animate({ scrollTop: 0 }, 600);
+		return false;
+	});
+		
+	</script>
+
