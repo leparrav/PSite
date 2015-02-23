@@ -1,4 +1,4 @@
-﻿
+
 /*-----------------------------*\
 	CONTENT
 \*-----------------------------*/
@@ -41,7 +41,7 @@ body {
 ul, li {
 	list-style: none;
 	margin: 0;
-	padding: 0; 
+	padding: 0;
 }
 .aside_el {
 	text-align: right;
@@ -81,8 +81,8 @@ ul, li {
 \*-----------------------------*/
 
 body {
-	background: #b9babe url("../img/body-bg.png") repeat;
-} 
+    background-color: grey;
+}
 .wrapper {
 	margin: 0; padding: 0;
 	width: 100%;
@@ -122,7 +122,7 @@ body {
 }
 .site_nav li {
 	/* Positioning & Display */
-	vertical-align: middle; 
+	vertical-align: middle;
 	margin: 0;
 	margin-left: -2px;
 	padding: 0 18px;
@@ -154,6 +154,9 @@ body {
 }
 .site_nav li.active a {
 	color: #747474;
+}
+.site_nav a {
+text-decoration: none;
 }
 
 /*-----------------------------*\
@@ -195,8 +198,8 @@ body {
 	z-index: 1;
 }
 .site_header h1:after {
-   right: 0;  
-   left: auto; 
+   right: 0;
+   left: auto;
 }
 .site_header h2 {
 	font: 2.1em 'Arvo', serif; /* 21px/10 */
@@ -263,14 +266,14 @@ body {
 	z-index: 10000;
 }
 .upbtn span {
-	color: white; 
-	line-height: 48px; 
-	text-align: center; 
+	color: white;
+	line-height: 48px;
+	text-align: center;
 	font-size: 35px; /* 30/14 */
 	position: relative;
 	bottom: 5px;
 	right: 18px;
-} 
+}
 
 /* contact info */
 .cont_info {
@@ -346,8 +349,9 @@ body {
 
 .period  {
 	/* Positioning & Display */
-	position: absolute;
-	top: 0;
+	position: relative;
+	top: 2em;
+	left: 1px;
 	padding-left: 5px;
 	padding-right: 5px;
 	/* Text */
@@ -465,7 +469,7 @@ footer {
 .comment_form fieldset {
 	margin-left: -20px;
 	margin-right: 2px;
-} 
+}
 
 .comment_form input {
 	/* Positioning & Display */
@@ -504,7 +508,7 @@ input::-moz-placeholder, textarea::-moz-placeholder {  /* Firefox 19+ */
 	color: #464646;
 	font: 14px 'Droid Sans', sans-serif;
 }
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {  
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 	color: #464646;
 	font: 14px 'Droid Sans', sans-serif;
 }
@@ -627,7 +631,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 		overflow: hidden;
 	}
 	.skill_level {
-		margin-top: 10px;
+		margin-top: 5em;
 		padding: 0 18px 0 14px;
 	}
 	.about_me {
@@ -690,7 +694,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 	.cont_info {
 		margin-top: 25px;
 	}
-		
+
 	.about_me {
 		margin-top: 20px;
 	}
@@ -699,12 +703,12 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 	}
 	.experience, .education, .portfolio {
 		margin-top: 20px;
-	}	
+	}
 	.par_el header h2 {
 		font: 1.9em 'Arvo',serif;
 		margin-top: 3px;
 		padding-top: 2px;
-		
+
 	}
 	.par_el header h3 {
 		font: 1.4em/0.535714em 'Droid Sans',sans-serif;
@@ -807,6 +811,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 	}
 	.period {
 		font: 600 1.3em 'Droid Sans',sans-serif;
+		top: 0px;
 	}
 	.galleryItem h3 {
 		font: 1.4em 'Droid Sans', sans-serif;
@@ -859,7 +864,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 		margin-top: -8px;
 		-webkit-transition: color 0.5s ease;
 	}
-	
+
 	.comment_form {
 		padding: 30px;
 		margin-left: 0px;
@@ -881,12 +886,10 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 	}
 }
 /* Retina screens patterns */
-@media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi) { 
+@media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi) {
     body {
-		background: #b9babe url("../img/body-bg@2x.png") repeat;
-	} 
+	}
 	.container, .site_nav {
-		background: url("../img/container-bg@2x.png");
 	}
 	footer {
 		background: #f0f4f2 url("../img/contact-bg@2x.png") repeat;

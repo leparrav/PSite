@@ -399,3 +399,12 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #0085a1;
 }
+
+.grey {
+  background-color: rgba(0,0,0,0.45);
+}
+
+pre {
+    background-color: #000;
+    color: #fff;
+}
