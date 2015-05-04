@@ -1,6 +1,13 @@
 {% extends 'blog/base.html' %}
     {% load static %}
     {% load custom_markdown %}
+
+    {% block metadata %}
+    <meta property="og:title"
+        content="{{post.title}}" />
+    <meta property="og:site_name" content="Robotics, Computer Vision and Web development blog"/>
+    {% endblock %}
+
     {% block body_block %}
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-550ff9505adb4724" async="async"></script>
