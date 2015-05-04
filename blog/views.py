@@ -1,7 +1,8 @@
 from django.shortcuts import render_to_response, get_object_or_404
+from django.http import HttpResponseNotFound, Http404
 from django.template import RequestContext
 from blog.models import Quote, Post
-from random import randint
+from random import randint, shuffle
 from django.db.models import Q
 
 def get_search_list(max_results=10, query=''):
@@ -45,6 +46,7 @@ def index(request, post_page):
 	# Next
 	if upper_bound >= post_len and lower_bound >= post_len: # No more post to show, fix image when this happen
 		next_present = False
+		raise Http404("There are no post in this page, return to main page")
 	else:
 		next_present = True
 	# Previous
@@ -80,12 +82,23 @@ def post(request, post_pk):
 	if post_pk >= post_count:
 		previous_present = False
 
+	# Related posts list - From post.title first word
+	first_word = post.title.split()[0]
+	related_posts = list(get_search_list(8,first_word))
+	# Remove post with same than current post
+	related_posts.remove(post)
+	shuffle(related_posts)
+	related_posts = related_posts[:3]
+	print dir(post)
+
+
 	context_dict = {'post': post,
 					'quote': quote,
 					'next': post_pk-1,
 					'next_present': next_present,
 					'previous': post_pk+1,
-					'previous_present': previous_present}
+					'previous_present': previous_present,
+					'related_posts': related_posts }
 	return render_to_response('blog/post.html', context_dict, context)
 
 def search(request):

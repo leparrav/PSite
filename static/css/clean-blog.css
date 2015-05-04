@@ -408,3 +408,20 @@ pre {
     background-color: #000;
     color: #fff;
 }
+
+.similar {
+  padding: 15px 25px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+  .similar:hover{
+    background-color: #0081a1;
+    border: 1px solid #0081a1;
+    color: white;
+  }
+
+  .similar:hover a {
+    color: white;
+  }
+
+

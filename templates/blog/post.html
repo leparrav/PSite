@@ -30,6 +30,17 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <h1> {{post.title}} </h1>
                    {{ post.text|custom_markdown }}
+                   {% if related_posts %}
+                        <hr>
+                        <h4> Similar posts: </h4>
+                        {% for each in related_posts %}
+                        <a href="/blog/post/{{each.pk}}"> 
+                            <div class="similar">
+                                <h5>  {{each.title}}  </h5>
+                            </div>
+                        </a>
+                        {% endfor %}
+                   {% endif %}
                    <hr>
                         <ul class="pager">
                             {% if previous_present %}
@@ -44,6 +55,8 @@
                             {% endif %}
                         </ul>
                    <hr>
+
+                <!-- Disqus Commenting -->
                  <div id="disqus_thread"></div>
                     <script type="text/javascript">
                         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
