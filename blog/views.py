@@ -86,7 +86,8 @@ def post(request, post_pk):
 	first_word = post.title.split()[0]
 	related_posts = list(get_search_list(8,first_word))
 	# Remove post with same than current post
-	related_posts.remove(post)
+	if post in related_posts:
+		related_posts.remove(post)
 	shuffle(related_posts)
 	related_posts = related_posts[:3]
 	print dir(post)
