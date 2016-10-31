@@ -1,22 +1,18 @@
 import os
 
 # Django settings for PSite_project project.
-
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-SETTINGS_DIR = os.path.dirname(__file__)
-PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
-PROJECT_PATH = os.path.abspath(PROJECT_PATH)
-TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
-STATIC_PATH = os.path.join(PROJECT_PATH,'static')
-DATABASE_PATH = os.path.join(PROJECT_PATH, 'data.db')
-
+DEBUG           = False
+TEMPLATE_DEBUG  = DEBUG
+SETTINGS_DIR    = os.path.dirname(__file__)
+PROJECT_PATH    = os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH    = os.path.abspath(PROJECT_PATH)
+TEMPLATE_PATH   = os.path.join(PROJECT_PATH, 'templates')
+STATIC_PATH     = os.path.join(PROJECT_PATH,'static')
+DATABASE_PATH   = os.path.join(PROJECT_PATH, 'data.db')
 ADMINS = (
         ('Luis Parra', 'leparrav@gmail.com'),
 )
-
 MANAGERS = ADMINS
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -24,8 +20,6 @@ DATABASES = {
     }
 }
 
-# Hosts/domain names that are valid for this site; required if DEBUG is False
-# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['leparrav.pythonanywhere.com','127.0.0.1','www.leparrav.com']
 
 # Local time zone for this installation. Choices can be found here:
@@ -91,12 +85,21 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '43k@*-9ncj)_r&)8$6#-q4%kznl=()^p+ii!+@0w0=@4#m+#&)'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': ['templates'],
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -114,13 +117,6 @@ ROOT_URLCONF = 'PSite_project.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'PSite_project.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    TEMPLATE_PATH,
-)
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,7 +126,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'portafolio',
-    'django.contrib.comments',
     'blog',
     'rango',
     'axes',
@@ -138,31 +133,8 @@ INSTALLED_APPS = (
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See http://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-    }
-}
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "leparrav@gmail.com"
+EMAIL_HOST_PASSWORD = 'en18luisro25vane'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

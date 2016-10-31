@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+    {% load static %}
+    {% load custom_markdown %}
+    {% block body_block %}
+
+	    <header class="intro-header" style="background-image: url({{post.pic.url}})">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	                    <div class="site-heading">
+	                        <h2>{{quote.author}}</h2>
+	                        <hr class="small">
+	                        <span class="subheading">{{quote.text}}</span>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </header>
+
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+		<form action="" class="form">
+		   <div class="input-group">
+		       <input id="suggestion" style="height: 3.7em;" type="Search" placeholder="Search..." class="form-control" />
+		       <div class="input-group-btn">
+		           <button class="btn">
+		           		<span class="glyphicon glyphicon-search"></span>
+		           </button>
+		       </div>
+		   </div>
+		</form>
+	</div>
+	<br>
+	<br>
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    	<div id="results">
+    		{% include 'blog/search_list.html' with posts=posts %}
+    	</div>
+	</div>
+	<br>
+	<br>
+
+    {% endblock %}
